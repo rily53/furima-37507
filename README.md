@@ -74,5 +74,4 @@
 
 ### Association
 
-- belongs_to :area
 - belongs_to :buyer
