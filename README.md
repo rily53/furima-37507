@@ -27,11 +27,11 @@
 | ------------------ | ---------- | ------------------------------ |
 | item_name          | string     | null: false                    |
 | explanation        | text       | null: false                    |
-| category           | references | null: false, foreign_key: true |
-| status             | references | null: false, foreign_key: true |
-| shipping_charge    | references | null: false, foreign_key: true |
-| area               | references | null: false, foreign_key: true |
-| shipping_day       | references | null: false, foreign_key: true |
+| category_id        | integer    | null: false                    |
+| status_id          | integer    | null: false                    |
+| shipping_charge_id | integer    | null: false                    |
+| area_id            | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
@@ -64,14 +64,15 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| post_code          | integer    | null: false                    |
-| area               | references | null: false, foreign_key: true |
+| post_code          | string     | null: false                    |
+| area_id            | integer    | null: false                    |
 | municipalities     | string     | null: false                    |
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
-| phone              | integer    | null: false                    |
+| phone              | string     | null: false                    |
 | buyer              | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :area
 - belongs_to :buyer
