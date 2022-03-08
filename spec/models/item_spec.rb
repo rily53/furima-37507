@@ -2,7 +2,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload('app/assets/images/item-sample.png')
   end
 
   describe '出品新規登録' do
@@ -71,6 +70,11 @@ RSpec.describe Item, type: :model do
         @item.price = '10_000_000'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is out of setting range')
+      end
+      it 'userが紐付いていない場合は登録できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end

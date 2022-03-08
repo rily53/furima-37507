@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :item_name, presence: true
   validates :explanation, presence: true
-  validate :user_id
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
