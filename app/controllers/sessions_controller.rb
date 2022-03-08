@@ -9,5 +9,4 @@ class SessionsController < ApplicationController
 
     session[:user_return_to] = user_return_to if user_return_to
   end
-
 end
