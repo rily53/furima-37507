@@ -1,8 +1,11 @@
 class BuyersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
+  
 
   def index
     @buyer_address = BuyerShippingAddress.new
+    redirect_to root_path if @item.buyer.present? || current_user.id == @item.user_id
   end
 
   def create
