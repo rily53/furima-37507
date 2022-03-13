@@ -9,7 +9,6 @@ class BuyersController < ApplicationController
 
   def create
     @buyer_address = BuyerShippingAddress.new(buyer_params)
-    # binding.pry
     if @buyer_address.valid?
       pay_item
       @buyer_address.save

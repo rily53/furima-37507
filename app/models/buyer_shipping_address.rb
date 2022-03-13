@@ -13,7 +13,7 @@ class BuyerShippingAddress
     validates :item_id
   end
 
-  validates :phone, format: { with: /\d{10,11}/, message: 'is invalid. Input only number' }
+  validates :phone, numericality: { only_integer: true, message: 'is invalid. Input only number' }
 
   def save
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
