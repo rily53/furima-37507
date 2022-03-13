@@ -9,6 +9,7 @@ class BuyersController < ApplicationController
 
   def create
     @buyer_address = BuyerShippingAddress.new(buyer_params)
+    # binding.pry
     if @buyer_address.valid?
       pay_item
       @buyer_address.save
@@ -31,7 +32,7 @@ class BuyersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
       card: buyer_params[:token],
