@@ -64,11 +64,6 @@ RSpec.describe BuyerShippingAddress, type: :model do
         @buyer_shipping_address.valid?
         expect(@buyer_shipping_address.errors.full_messages).to include("Phone can't be blank")
       end
-      it 'phoneが11文字未満だと購入できない' do
-        @buyer_shipping_address.phone = '0901234567'
-        @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include('Phone is too short')
-      end
       it 'phoneが9桁以下だと購入できない' do
         @buyer_shipping_address.phone = '12345678'
         @buyer_shipping_address.valid?

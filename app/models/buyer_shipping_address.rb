@@ -8,7 +8,7 @@ class BuyerShippingAddress
     validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :municipalities
     validates :address
-    validates :phone, length: { is: 11, message: 'is too short' }
+    validates :phone, length: { in: 10..11, message: 'is too short' }
     validates :user_id
     validates :item_id
   end
