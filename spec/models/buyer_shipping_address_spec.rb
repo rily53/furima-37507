@@ -32,17 +32,17 @@ RSpec.describe BuyerShippingAddress, type: :model do
       it 'post_codeに-が含まれていないと保存できない' do
         @buyer_shipping_address.post_code = '1231234'
         @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@buyer_shipping_address.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it 'post_codeの文字数が正しく入力（123-1234）されていないと保存できない' do
         @buyer_shipping_address.post_code = '123-123'
         @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@buyer_shipping_address.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it 'post_codeが全角だと保存できない' do
         @buyer_shipping_address.post_code = '１２３−１２３４'
         @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@buyer_shipping_address.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it 'areaが--だと保存できない' do
         @buyer_shipping_address.area_id = '1'
@@ -72,12 +72,12 @@ RSpec.describe BuyerShippingAddress, type: :model do
       it 'phoneが11文字未満だと保存できない' do
         @buyer_shipping_address.phone = '0901234567'
         @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include("Phone is too short")
+        expect(@buyer_shipping_address.errors.full_messages).to include('Phone is too short')
       end
       it 'phoneが全角だと保存できない' do
         @buyer_shipping_address.phone = '０９０１２３４５６７８'
         @buyer_shipping_address.valid?
-        expect(@buyer_shipping_address.errors.full_messages).to include("Phone is invalid. Input only number")
+        expect(@buyer_shipping_address.errors.full_messages).to include('Phone is invalid. Input only number')
       end
     end
   end

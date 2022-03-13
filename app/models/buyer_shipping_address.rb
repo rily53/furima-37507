@@ -13,10 +13,11 @@ class BuyerShippingAddress
     validates :item_id
   end
 
-    validates :phone, format: { with: /\d{10,11}/, message: 'is invalid. Input only number' }
+  validates :phone, format: { with: /\d{10,11}/, message: 'is invalid. Input only number' }
 
   def save
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
-    ShippingAddress.create(post_code: post_code, area_id: area_id, municipalities: municipalities, address: address, building_name: building_name, phone: phone, buyer_id: buyer.id)
+    ShippingAddress.create(post_code: post_code, area_id: area_id, municipalities: municipalities, address: address,
+                           building_name: building_name, phone: phone, buyer_id: buyer.id)
   end
 end
